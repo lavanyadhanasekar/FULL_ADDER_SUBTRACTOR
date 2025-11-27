@@ -39,17 +39,59 @@ Borrow out = A'Bin + A'B + BBin
 **Truthtable**
 
 **Procedure**
+1.Type the program in Quartus software.
 
-Write the detailed procedure here
+2.Compile and run the program.
 
+3.Generate the RTL schematic and save the logic diagram.
+
+4.Create nodes for inputs and outputs to generate the timing diagram.
+
+5.For different input combinations generate the timing diagram
 **Program:**
+Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming
+```
+full adder
+module lab5(
+    input  wire a, b, cin,   // Inputs
+    output wire sum, carry   // Outputs
+);
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+    // Logic equations
+    assign sum   = a ^ b ^ cin;                  // XOR for sum
+    assign carry = (a & b) | (b & cin) | (a & cin); // Majority function for carry
+
+endmodule
+
+full subtrator
+module lab6 (
+    input  wire a, b, bin,       // Inputs
+    output wire diff, borrow     // Outputs
+);
+
+    // Logic equations
+    assign diff   = a ^ b ^ bin;                  // Difference
+    assign borrow = (~a & b) | (~(a ^ b) & bin);  // Borrow logic
+
+endmodule
+
+```
+Developed by:Lavanya D RegisterNumber:25016895
 
 **RTL Schematic**
+full adder
+
+<img width="1912" height="1068" alt="Screenshot 2025-11-27 190247" src="https://github.com/user-attachments/assets/fa0cd117-1cc4-4928-90bd-064cbf5dbd7e" />
+
+full subtrator
+<img width="1900" height="801" alt="Screenshot 2025-11-27 191930" src="https://github.com/user-attachments/assets/1e278d2a-c34d-42ea-8243-9b1ee30da91f" />
 
 **Output Timing Waveform**
+full adder
+<img width="1894" height="1053" alt="Screenshot 2025-11-27 190803" src="https://github.com/user-attachments/assets/3597c592-2480-4196-94b2-e0eb716118d3" />
+
+full subtractor
+<img width="1885" height="1065" alt="Screenshot 2025-11-27 192322" src="https://github.com/user-attachments/assets/34830970-f4f7-4aad-96e7-4113fa8b271d" />
 
 **Result:**
 
